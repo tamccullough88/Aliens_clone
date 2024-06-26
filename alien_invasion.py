@@ -26,11 +26,8 @@ class AlienInvasion:
         while True:
             # Watch for keyboard and mouse events
             self._check_events()
+            self.ship.update()
             self._update_screen()
-
-
-            #make the most recently drawn screen available
-            pygame.display.flip()
             self.clock.tick(60)
 
     def _check_events(self):
@@ -38,11 +35,29 @@ class AlienInvasion:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
+                elif event.type == pygame.KEYDOWN:
+                    self._check_keydown_events(event)
+                elif event.type == pygame.KEYUP:
+                    self._check_keyup_events(event)
+
+    def _check_keydown_events(self, event):
+            if event.key == pygame.K_RIGHT:
+                self.ship.moving_right = True
+            elif event.key == pygame.K_LEFT:
+                self.ship.moving_left = True
+
+    def _check_keyup_events(self, event):
+            if event.key == pygame.K_RIGHT:
+                self.ship.moving_right = False
+            elif event.key == pygame.K_LEFT:
+                self.ship.moving_left = False
 
     def _update_screen(self):
             # Redraw the screen during each pass through the oop
             self.screen.fill(self.settings.bg_color)
             self.ship.blitme()
+            #make the most recently drawn screen available
+            pygame.display.flip()
 
 if __name__ == '__main__':
     #Make a game instance and run the game
