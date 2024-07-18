@@ -31,7 +31,7 @@ To start the game, run the following command:
 python alien_invasion.py
 ```
 
-##Project Structure
+## Project Structure
 
 alien.py: Contains the Alien class.
 alien_invasion.py: Main game file that initializes the game and contains the game loop.
@@ -40,14 +40,14 @@ settings.py: Contains the Settings class for game configuration.
 ship.py: Contains the Ship class.
 Images/: Directory for storing game images.
 
-##Requirements
+## Requirements
 
 Python 3.x
 
-##Contributing
+## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.
 
-##License
+## License
 
 This project is licensed under the MIT License.
